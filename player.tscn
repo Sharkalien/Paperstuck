@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://c5gypibir3r7v"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_4mfhy"]
+[ext_resource type="Texture2D" uid="uid://cvy6qr0o4gid1" path="res://john_spritesheet.png" id="2_2jd1r"]
+[ext_resource type="Script" path="res://ShadowSpringArm.gd" id="3_jine5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1iefr"]
+height = 1.56292
+
+[sub_resource type="Gradient" id="Gradient_41jbk"]
+offsets = PackedFloat32Array(0.5, 0.626984)
+colors = PackedColorArray(0, 0, 0, 0.5, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ohs7r"]
+gradient = SubResource("Gradient_41jbk")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erqo8"]
+transparency = 1
+albedo_texture = SubResource("GradientTexture2D_ohs7r")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3co00"]
+material = SubResource("StandardMaterial3D_erqo8")
+size = Vector2(0.9, 0.9)
+orientation = 1
+
+[sub_resource type="Animation" id="Animation_e818s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cnk0j"]
+resource_name = "jump"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_4mly0"]
+resource_name = "walk"
+length = 0.500008
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_320j8"]
+_data = {
+"RESET": SubResource("Animation_e818s"),
+"jump": SubResource("Animation_cnk0j"),
+"walk": SubResource("Animation_4mly0")
+}
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_4mfhy")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.62346, 0, 0, 0, 0.62346, 0, 0, 0, 0.62346, 0, -0.296, 0)
+offset = Vector2(14.39, 0)
+billboard = 2
+texture_filter = 4
+texture = ExtResource("2_2jd1r")
+hframes = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.217073, 0)
+shape = SubResource("CapsuleShape3D_1iefr")
+
+[node name="ShadowSpringArm" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.919301, 0)
+spring_length = 2.0
+script = ExtResource("3_jine5")
+
+[node name="DropShadow" type="MeshInstance3D" parent="ShadowSpringArm"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.52745e-09, 0.0806987)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_3co00")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_320j8")
+}
