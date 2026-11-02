@@ -747,6 +747,7 @@ light_specular = 0.0
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1022152639]
 transform = Transform3D(0.719103, -0.331662, 0.610648, 0, 0.878752, 0.477278, -0.694904, -0.343212, 0.631913, 3.36349, 3.23556, 3.52829)
+current = true
 fov = 50.0
 size = 5.90625
 near = 0.1

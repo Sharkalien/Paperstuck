@@ -22,7 +22,6 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		anim_player.play("jump")
 	
 	if Input.is_action_just_pressed("ui_right"):
 		sprite.flip_h = false
@@ -38,12 +37,13 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if is_on_floor():
-			anim_player.play("walk")
-		else: anim_player.play("jump")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		#anim_player.play("RESET")
+	#sprite.flip_h = velocity.z
+	if is_on_floor():
+		anim_player.play("walk")
+	else: anim_player.play("jump")
 
 	move_and_slide()
