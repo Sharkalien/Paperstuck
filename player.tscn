@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5gypibir3r7v"]
+[gd_scene format=3 uid="uid://c5gypibir3r7v"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_4mfhy"]
+[ext_resource type="Script" uid="uid://mxkw5bfpxv3l" path="res://player.gd" id="1_4mfhy"]
 [ext_resource type="Texture2D" uid="uid://cvy6qr0o4gid1" path="res://john_spritesheet.png" id="2_2jd1r"]
-[ext_resource type="Script" path="res://ShadowSpringArm.gd" id="3_jine5"]
+[ext_resource type="Script" uid="uid://b3jblfrupq6dv" path="res://ShadowSpringArm.gd" id="3_jine5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1iefr"]
 height = 1.56292
@@ -78,16 +78,16 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_320j8"]
 _data = {
-"RESET": SubResource("Animation_e818s"),
-"jump": SubResource("Animation_cnk0j"),
-"walk": SubResource("Animation_4mly0")
+&"RESET": SubResource("Animation_e818s"),
+&"jump": SubResource("Animation_cnk0j"),
+&"walk": SubResource("Animation_4mly0")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=836648807]
 collision_layer = 2
 script = ExtResource("1_4mfhy")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1513362040]
 transform = Transform3D(0.62346, 0, 0, 0, 0.62346, 0, 0, 0, 0.62346, 0, -0.296, 0)
 offset = Vector2(14.39, 0)
 billboard = 2
@@ -95,22 +95,20 @@ texture_filter = 4
 texture = ExtResource("2_2jd1r")
 hframes = 6
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1629820087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.217073, 0)
 shape = SubResource("CapsuleShape3D_1iefr")
 
-[node name="ShadowSpringArm" type="SpringArm3D" parent="."]
+[node name="ShadowSpringArm" type="SpringArm3D" parent="." unique_id=363364047]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.919301, 0)
 spring_length = 2.0
 script = ExtResource("3_jine5")
 
-[node name="DropShadow" type="MeshInstance3D" parent="ShadowSpringArm"]
+[node name="DropShadow" type="MeshInstance3D" parent="ShadowSpringArm" unique_id=1997781347]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.52745e-09, 0.0806987)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_3co00")
 skeleton = NodePath("../..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_320j8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1034653703]
+libraries/ = SubResource("AnimationLibrary_320j8")
