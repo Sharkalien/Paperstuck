@@ -595,15 +595,7 @@ ambient_light_color = Color(0.47451, 0.47451, 0.47451, 1)
 [node name="JohnRoom2" type="Node3D" unique_id=422491043]
 
 [node name="Player" parent="." unique_id=718739747 instance=ExtResource("1_440wq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31623, 1, 0)
-
-[node name="Camera2" type="Camera3D" parent="Player" unique_id=708836201]
-transform = Transform3D(0.71910274, -0.33166233, 0.61064833, 0, 0.87875235, 0.47727808, -0.6949038, -0.34321198, 0.63191324, 3.470954, 2.23556, 3.52829)
-current = true
-fov = 50.0
-size = 5.90625
-near = 0.1
-far = 100.0
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.31623, 1, 0)
 
 [node name="Room" type="StaticBody3D" parent="." unique_id=860682908]
 

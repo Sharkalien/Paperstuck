@@ -112,3 +112,11 @@ skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1034653703]
 libraries/ = SubResource("AnimationLibrary_320j8")
+
+[node name="CameraYaw" type="Node3D" parent="." unique_id=1942338078]
+
+[node name="CameraPitch" type="Node3D" parent="CameraYaw" unique_id=1590284317]
+
+[node name="Camera3D" type="Camera3D" parent="CameraYaw/CameraPitch" unique_id=2095212619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.75)
+current = true
