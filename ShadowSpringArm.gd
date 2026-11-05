@@ -15,6 +15,10 @@ func _process(_delta: float) -> void:
 	change_shadow_opacity(length)
 	#print(length)
 	#print(drop_shadow.scale)
+	if get_hit_length() >= spring_length:
+		drop_shadow.hide()
+	else:
+		drop_shadow.show()
 
 
 func change_shadow_opacity(length) -> void:
