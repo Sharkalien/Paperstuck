@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://1w7b7vjns41v"]
+
+[ext_resource type="Script" uid="uid://b382033suossu" path="res://CustomSpringArm3D.gd" id="1_uepba"]
+
+[node name="CameraPivot" type="Marker3D" unique_id=1081347728]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1236075947 node_paths=PackedStringArray("player")]
+transform = Transform3D(0.507777, -0.17844, 0.842806, 0, 0.978313, 0.20713, -0.861489, -0.105176, 0.496765, 5.26687, 2.70137, 4.68064)
+spring_length = -8.0
+script = ExtResource("1_uepba")
+player = NodePath("")
+
+[node name="Camera" type="Camera3D" parent="SpringArm3D" unique_id=393232761]
+transform = Transform3D(0.963795, 0.127263, -0.234313, -0.0552298, 0.954975, 0.291502, 0.260861, -0.268007, 0.927429, 0.0262474, 0.983446, -2.06598)
+current = true
+fov = 50.0
+size = 5.90625
+near = 0.1
+far = 100.0
