@@ -5,7 +5,9 @@ const JUMP_VELOCITY = 4.5
 
 @onready var sprite: Sprite3D = $Sprite3D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-@onready var camera: Camera3D = $"../Camera"
+@onready var camera: Camera3D : 
+	get: 
+		return get_viewport().get_camera_3d()
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
