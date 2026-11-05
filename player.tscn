@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b3jblfrupq6dv" path="res://ShadowSpringArm.gd" id="3_jine5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1iefr"]
-height = 1.56292
+height = 1.4245265
 
 [sub_resource type="Gradient" id="Gradient_41jbk"]
 offsets = PackedFloat32Array(0.5, 0.626984)
@@ -96,7 +96,7 @@ texture = ExtResource("2_2jd1r")
 hframes = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1629820087]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.217073, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28626975, 0)
 shape = SubResource("CapsuleShape3D_1iefr")
 
 [node name="ShadowSpringArm" type="SpringArm3D" parent="." unique_id=363364047]
