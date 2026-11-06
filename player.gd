@@ -10,6 +10,7 @@ const JUMP_VELOCITY = 4.5
 		return get_viewport().get_camera_3d()
 @onready var camera_yaw: Node3D = $CameraYaw
 @onready var camera_pitch: Node3D = $CameraYaw/CameraPitch
+@onready var camera_spring_arm: SpringArm3D = $CameraYaw/CameraPitch/SpringArm3D
 
 @export var mouse_sensitivity: float = 0.003
 @export var min_pitch_degrees: float = -45.0
@@ -110,8 +111,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	var weight := 1.0 - exp(-zoom_smoothness * delta)
 	
-	camera.position.z = lerpf(
-		camera.position.z,
+	camera_spring_arm.spring_length = lerpf(
+		camera_spring_arm.spring_length,
 		zoom_distance,
 		weight
 	)

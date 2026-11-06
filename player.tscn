@@ -117,6 +117,9 @@ libraries/ = SubResource("AnimationLibrary_320j8")
 
 [node name="CameraPitch" type="Node3D" parent="CameraYaw" unique_id=1590284317]
 
-[node name="Camera3D" type="Camera3D" parent="CameraYaw/CameraPitch" unique_id=2095212619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.75)
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraYaw/CameraPitch" unique_id=1153927618]
+collision_mask = 128
+spring_length = 3.75
+
+[node name="Camera3D" type="Camera3D" parent="CameraYaw/CameraPitch/SpringArm3D" unique_id=2095212619]
 current = true
