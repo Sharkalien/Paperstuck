@@ -8,9 +8,9 @@ const JUMP_VELOCITY = 4.5
 @onready var camera: Camera3D : 
 	get: 
 		return get_viewport().get_camera_3d()
-@onready var camera_yaw: Node3D = $CameraYaw
-@onready var camera_pitch: Node3D = $CameraYaw/CameraPitch
-@onready var camera_spring_arm: SpringArm3D = $CameraYaw/CameraPitch/SpringArm3D
+@onready var camera_yaw: Node3D = $"../CameraRig/CameraYaw"
+@onready var camera_pitch: Node3D = $"../CameraRig/CameraYaw/CameraPitch"
+@onready var camera_spring_arm: SpringArm3D = $"../CameraRig/CameraYaw/CameraPitch/SpringArm3D"
 
 @export var mouse_sensitivity: float = 0.003
 @export var min_pitch_degrees: float = -45.0
